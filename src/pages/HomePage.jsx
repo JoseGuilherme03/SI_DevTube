@@ -6,11 +6,11 @@ export const HomePage = () => {
       </header>
       <main className="flex flex-col gap-10">
         <div className="flex flex-col px-10 gap-8">
-          <h2 className="text-4xl">Category</h2>
+          <h2 className="text-4xl">Categorias</h2>
           <div className="w-96 h-72 bg-white rounded-xl"></div>
         </div>
         <div className="flex flex-col px-10 gap-8">
-          <h2 className="text-4xl">Category</h2>
+          <h2 className="text-4xl">Categorias</h2>
           <div className="w-96 h-72 bg-white rounded-xl"></div>
         </div>
       </main>
