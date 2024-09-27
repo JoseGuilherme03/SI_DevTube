@@ -2,7 +2,12 @@ import { useState } from "react";
 import { createVideo, getVideos } from "../services/api";
 
 export const VideoForm = ({ categoriesList, setVideoList, setShowForm }) => {
-  const [newVideo, setNewVideo] = useState({ title: "", url: "", description: "", category_id: 0 });
+  const [newVideo, setNewVideo] = useState({
+    title: "",
+    url: "",
+    description: "",
+    category_id: 0,
+  });
   const [errors, setErrors] = useState({});
 
   const handleInputChange = (e) => {
@@ -35,12 +40,17 @@ export const VideoForm = ({ categoriesList, setVideoList, setShowForm }) => {
       setVideoList(videos);
     } catch (error) {
       console.error("Erro ao criar vídeo:", error);
-      alert("Ocorreu um erro ao tentar criar o vídeo. Por favor, tente novamente.");
+      alert(
+        "Ocorreu um erro ao tentar criar o vídeo. Por favor, tente novamente."
+      );
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4 p-4 rounded-lg ">
+    <form
+      onSubmit={handleSubmit}
+      className="flex flex-col gap-4 p-4 rounded-lg "
+    >
       <input
         type="text"
         name="title"
@@ -69,7 +79,9 @@ export const VideoForm = ({ categoriesList, setVideoList, setShowForm }) => {
         onChange={handleInputChange}
         className="p-2 rounded"
       />
-      {errors.description && <span className="text-red-500">{errors.description}</span>}
+      {errors.description && (
+        <span className="text-red-500">{errors.description}</span>
+      )}
       <select
         name="category_id"
         value={newVideo.category_id}
@@ -84,8 +96,13 @@ export const VideoForm = ({ categoriesList, setVideoList, setShowForm }) => {
           </option>
         ))}
       </select>
-      {errors.category_id && <span className="text-red-500">{errors.category_id}</span>}
-      <button type="submit" className="bg-blue-500 py-2 px-4 rounded-lg text-white">
+      {errors.category_id && (
+        <span className="text-red-500">{errors.category_id}</span>
+      )}
+      <button
+        type="submit"
+        className="bg-blue-500 py-2 px-4 rounded-lg text-white"
+      >
         Cadastrar
       </button>
     </form>
